@@ -1,3 +1,15 @@
+'''
+APM:
+
+injaro ezafe kardam agar soal dashtid inja benevisid, moafagh bashid
+
+
+
+
+'''
+
+
+
 #A code for a Device that manages the light's exposure and amount of water required for apartment flowers
 
 import time

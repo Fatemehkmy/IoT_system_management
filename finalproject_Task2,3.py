@@ -14,7 +14,11 @@ class AdminPanel:
 
 
 
-
+    #ahsant ahsant kheyli awlii 
+    #hamchenin mitonid Password ro too hamin ja bezarid k fght afradi k dastresi drn btonan das bznan beehsh
+    #ya yek code khas ghable set_password bezarid k fgth afradi k ramzr ro daran betoonan set_password konan 
+    #ama dar kol ahsant 
+    
     def set_password(self):
         Syms =['$', '@', '#', '%']
         username= input('Please Enter your username :')
@@ -96,6 +100,7 @@ class AdminPanel:
             print(f'Group {group_name} does not exist')
 
     def get_devices_in_groups(self, group_name):
+        
         if group_name in self.groups:
             return self.groups[group_name]
 
@@ -109,7 +114,10 @@ class AdminPanel:
 
 
 
-
+        #besiar awli ahsant babate check_info 
+        #ama check_info ro aval bezarid ta afradi k bare aval code ro mikhonan befahman chie
+        #bad estefadasho bebinand
+        #ahsant
     def turn_on_all_in_group(self, group_name):
 
         if not self.check_info():
@@ -220,7 +228,7 @@ class AdminPanel:
             print(f'Group {group_name} does not exist !')
 
 
-
+    #ahsant babate in function
     def create_multiple_sensor(self, group_name, device_type, number_of_sensor):
         if group_name in self.groups:
             for i in range(1, number_of_sensor + 1):
@@ -232,7 +240,8 @@ class AdminPanel:
         else:
             print(f'Group {group_name} does not exist !')
 
-
+    #alan motvaje shdoam ama dar asl sensor ha az hamoon aval active hastan
+    #ama inke b in ghazxie fek kardid neshon mide darke kameli az masale peyda krdid
     def active_sensor(self, group_name, device_type):
         if not self.check_info():
             print("Access denied. Can not Add sensor to group.")
@@ -283,7 +292,8 @@ class AdminPanel:
         print('Your AdminPanel is locked due to too many failed attempts!')
         return False
 
-
+    #AHSANT AHSANT
+    #Badan mitonid ba estefade az matplotlib rasm ham konin energy ro bar asase zaman
     def energy_control(self):
         total_energy=0
         for devices in self.groups.values():
@@ -292,7 +302,8 @@ class AdminPanel:
                     energy_consumption= device.power_rating * device.hours_on
                     total_energy += energy_consumption
         return total_energy
-
+    #inja mitonid yek bot too telegram besazid va API Token ro bardarid
+    #ba estefade az ketabkhoeneye telegram-python-bot ba command bot.send_message b shomareye fard message ersal kone jaye print
     def send_alarm(self):
         total_energy= self.energy_control()
         if total_energy > self.energy_threshold:

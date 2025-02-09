@@ -4,6 +4,12 @@ import time
 import numpy as np
 from datetime import datetime
 
+#***
+#apm: ahsant 
+#ama sensor chizi bename Turn on va turn off nadare
+#fagaht yek tabe dare ke read_sensor konid
+#oon Device has k turn on turn off dare
+
 class Sensor:
     def __init__(self, topic, pin=100):
         self.topic = topic

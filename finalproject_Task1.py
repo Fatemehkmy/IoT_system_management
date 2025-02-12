@@ -1,5 +1,4 @@
 #A code for a Device that manages the light's exposure and amount of water required for apartment flowers
-
 import time
 import numpy as np
 from datetime import datetime

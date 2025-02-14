@@ -1,13 +1,8 @@
 #A code for a Device that manages the light's exposure and amount of water required for apartment flowers
+
 import time
 import numpy as np
 from datetime import datetime
-
-#***
-#apm: ahsant 
-#ama sensor chizi bename Turn on va turn off nadare
-#fagaht yek tabe dare ke read_sensor konid
-#oon Device has k turn on turn off dare
 
 class Sensor:
     def __init__(self, topic, pin=100):
@@ -29,43 +24,16 @@ class Sensor:
 
 
     def read_sensor(self):
-        if self.device_type == 'lights':
+        if self.device_type == 'Phototransistors' or self.device_type == 'lights':
             self.start_time = datetime.strptime("06:00", "%H:%M").time()
             self.end_time = datetime.strptime("18:00", "%H:%M").time()
             self.current_time = datetime.now().time()
             return self.current_time
 
-        elif self.device_type == 'waters':
+        elif self.device_type == 'hygrometer' or self.device_type == 'waters' :
             self.current_value = np.random.uniform(0, 1)
             return self.current_value
 
-    def turn_on(self):
-        self.status = 'ON'
-        #self.send_command('TURN_ON')
-        if self.device_type == 'Phototransistors':
-            #GPIO.output(56, GPIO.HIGH)
-            print(f'{self.name} was turned on successfully!')
-            self.report_sensor_status.append(f'{self.name} : ON')
-
-        elif self.device_type == 'hygrometer':
-            #GPIO.output(39, GPIO.HIGH)
-            print(f'{self.name} was turned on successfully!')
-            self.report_sensor_status.append(f'{self.name} : ON')
-
-
-
-    def turn_off(self):
-        self.status = 'OFF'
-        #self.send_command('TURN_OFF')
-        if self.device_type == 'Phototransistors':
-            #GPIO.output(56, GPIO.LOW)
-            print(f'{self.name} was turned off successfully!')
-            self.report_sensor_status.append(f'{self.name} : OFF')
-
-        elif self.device_type== 'hygrometer':
-            #GPIO.output(39, GPIO.LOW)
-            print(f'{self.name} was turned off successfully!')
-            self.report_sensor_status.append(f'{self.name} : OFF')
 
 
 
@@ -100,7 +68,7 @@ class Device(Sensor):
             GPIO.setup(44, GPIO.OUT)
 
     def turn_on(self):
-        self.status = 'on'
+        self.status = 'ON'
         #self.send_command('TURN_ON')
         if self.device_type == 'lights':
             self.start_time = time.time()
@@ -115,7 +83,7 @@ class Device(Sensor):
 
 
     def turn_off(self):
-        self.status = 'off'
+        self.status = 'OFF'
         #self.send_command('TURN_OFF')
         if self.device_type == 'lights':
             total_time = time.time() - self.start_time
@@ -143,8 +111,9 @@ class Device(Sensor):
 
 
     def humidity_check(self):
+        self.read_sensor()
         if self.device_type == 'waters':
-            self.read_sensor()
+
 
             if  0.4 <= self.current_value < 0.6:
                 print(f'The percentage of moisture is: {self.current_value:.2%} ')
@@ -205,8 +174,6 @@ if __name__=='__main__':
     a.controlling_light_time()
     a.get_status()
     b.get_status()
-    c.turn_on()
-    d.turn_off()
 
 
 

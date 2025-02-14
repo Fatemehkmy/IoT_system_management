@@ -1,3 +1,9 @@
+#Salam ostad Pilevar, vaghte shoma b kheir! mamnonam babte bazkhordhaye shoma, ta jayi ke emkan dasht va balad bodam
+#taghirati ke farmodid ro lahaz kardam.
+
+
+
+
 from finalproject_Task1 import *
 
 class AdminPanel:

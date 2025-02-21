@@ -1,6 +1,17 @@
 #Salam ostad Pilevar, vaghte shoma b kheir! mamnonam babte bazkhordhaye shoma, ta jayi ke emkan dasht va balad bodam
 #taghirati ke farmodid ro lahaz kardam.
+'''
 
+APM:
+
+kheylii awli ahsant etefaghan in kheyli kheyli khoob bod k
+motvaje shodid k hata tabe haye ghabli k devcie dare bayad aval check beshe k devcie hast ya na
+ahsant
+moafagh bashid
+
+
+
+'''
 
 
 
